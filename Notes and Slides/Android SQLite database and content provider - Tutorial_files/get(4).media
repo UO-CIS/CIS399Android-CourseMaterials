@@ -1,0 +1,5 @@
+{var dz=document;
+dz.writeln("<iframe src=\"http://adfarm.mediaplex.com/ad/fm/7474-142431-17922-0?mpt=20140709000220&mpvc=http://media.fastclick.net/w/click.here?cid=556521;mid=1099441;m=1;sid=88861;c=0;tp=5;UD=WhI4NzU1MDIwNjAzMTM0MTMwODeIAbGNQ5AB6fshmAGdtgWgAQGoAQXwAQCyAg41MC4yNDYuMjM2LjI1MQ;upsid=875502060313413087;forced_click=\" width=728 height=90 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no bordercolor=\"#000000\">");
+dz.writeln("</iframe>");
+dz.writeln("<script type=\"text/javascript\">(function(){document.write('<span id=\"te-clearads-js-1849355508_5_1099441\"><sc'+'ript type=\"text/javascript\" src=\"'+((\"https:\"==document.location.protocol)?\"https\":\"http\")+'://choices.truste.com/ca?pid=valueclick01&aid=valueclick01&cid=1&c=1849355508_5_1099441&w=728&h=90&plc=tr\"></scr'+'ipt></span>');}());<\/script>");
+dz.writeln("");}

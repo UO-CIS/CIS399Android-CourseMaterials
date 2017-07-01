@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/QAPage">
+<head>
+
+<title>android - No ActionBar in PreferenceActivity after upgrade to Support Library v21 - Stack Overflow</title>
+    <link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&a" />
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="No ActionBar in PreferenceActivity after upgrade to Support Library v21" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="After I upgraded to the Support Library v21 my ActionBar in my PreferenceActivity is gone.
+
+Did I miss some attributes in my theme to activate it again? I had some similar trouble with a black Acti..." />
+    <meta property="og:url" content="http://stackoverflow.com/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21"/>
+    <link rel="canonical" href="http://stackoverflow.com/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" />
+
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="//cdn.sstatic.net/Js/stub.en.js?v=363062a5dbc0"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.sstatic.net/stackoverflow/all.css?v=8e3db76cf493">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;No ActionBar in PreferenceActivity after upgrade to Support Library v21&#39;" href="/feeds/question/26509180">
+            <script>
+                if (window.history && window.history.replaceState) {
+                    try {
+                        window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+                    }
+                    catch(probablyIE) {
+                        // We tried, we failed, it happens
+                    }
+                }
+            </script>
+            <meta name="twitter:app:country" content="US" />
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:iphone" content="871299723" />
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" />
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:ipad" content="871299723" />
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" />
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:16,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:26509180});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '26509180');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1436455386,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"universalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"6717241b85dbacac3e781e5bbfca3db7","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"eee0f6f721bf","js/moderator.en.js":"ab2aabcee6b3","js/full-anon.en.js":"3b964dce2e1e","js/full.en.js":"21f4ff33840f","js/wmd.en.js":"263c64df01d2","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"08baf20fb091","js/help.en.js":"cf0985095088","js/tageditor.en.js":"38c4c3af3bd9","js/tageditornew.en.js":"12262bc909f3","js/inline-tag-editing.en.js":"2c9ad4ab1611","js/revisions.en.js":"6aca57a6c709","js/review.en.js":"4fe6841b8a85","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"0bd5c554c1a6","js/explore-qlist.en.js":"4e6f969d97ee","js/events.en.js":"d4e0768f01fc","js/keyboard-shortcuts.en.js":"24b77bf59a56","js/external-editor.en.js":"2fd4de15fb85","js/external-editor.en.js":"2fd4de15fb85","js/snippet-javascript.en.js":"60570560d4b9","js/snippet-javascript-codemirror.en.js":"97f210ab4a9b"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+</head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="//stackoverflow.com">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+                    <a href="http://blog.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:7 })"
+>blog</a>
+            </div>
+
+
+
+
+    <a href="//stackoverflow.com"
+       class="current-site-link site-link js-gps-track"
+       data-id="1"
+       data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com"
+       class="site-link js-gps-track"
+       data-id="552"
+       data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track"
+                       href="//careers.stackoverflow.com?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=multicollider"
+                            data-gps-track="site_switcher.click({ item_type:9 })"
+>
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f26509180%2fno-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:10 })"
+>Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f26509180%2fno-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:11 })"
+>log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="//stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="//stackexchange.com"
+               class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track"
+               data-gps-track="site_switcher.show"
+               title="A list of all 146 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f26509180%2fno-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f26509180%2fno-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" class="login-link">log in</a>
+
+                        <a href="/tour">tour</a>
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="//meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="//careers.stackoverflow.com?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240" />
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="/tags">Tags</a></li>
+                        <li><a id="nav-users" href="/users">Users</a></li>
+                        <li><a id="nav-badges" href="/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope itemtype="http://schema.org/Question">
+    <link itemprop="image" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">&times;</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It&#39;s 100% free.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21" class="question-hyperlink">No ActionBar in PreferenceActivity after upgrade to Support Library v21</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="26509180"  id="question">
+
+    <div class="everyonelovesstackoverflow" id="careers1">
+        </div>    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26509180">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">24</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>15</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>After I upgraded to the Support Library v21 my ActionBar in my <a href="http://developer.android.com/reference/android/preference/PreferenceActivity.html"><code>PreferenceActivity</code></a> is gone.</p>
+
+<p>Did I miss some attributes in my theme to activate it again? I had some similar trouble with <a href="http://stackoverflow.com/q/26506751/995926">a black ActionBar</a>.</p>
+
+<p>I also tried to add it a little hackish by adding a <a href="http://developer.android.com/reference/android/support/v7/widget/Toolbar.html"><code>Toolbar</code></a> to the root layout, but that did not work as expected.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/android" class="post-tag" title="show questions tagged &#39;android&#39;" rel="tag"><img src="//i.stack.imgur.com/tKsDb.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="/questions/tagged/android-support-library" class="post-tag" title="show questions tagged &#39;android-support-library&#39;" rel="tag">android-support-library</a> <a href="/questions/tagged/preferenceactivity" class="post-tag" title="show questions tagged &#39;preferenceactivity&#39;" rel="tag">preferenceactivity</a> <a href="/questions/tagged/android-5.0-lollipop" class="post-tag" title="show questions tagged &#39;android-5.0-lollipop&#39;" rel="tag">android-5.0-lollipop</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/q/26509180" title="short permalink to this question" class="short-link" id="link-post-26509180">share</a><span class="lsep">|</span><a href="/posts/26509180/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2014-10-22 13:55:27Z" class="relativetime">Oct 22 '14 at 13:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/995926/rekire"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/ff37883faea028e0fe7ae0859baa9bc9?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/995926/rekire">rekire</a><br>
+        <span class="reputation-score" title="reputation score 19892" dir="ltr">19.9k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="60 silver badges"><span class="badge2"></span><span class="badgecount">60</span></span><span title="127 bronze badges"><span class="badge3"></span><span class="badgecount">127</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26509180" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="11"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-41648677" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You should be using Preference Fragment: <a href="http://developer.android.com/reference/android/preference/PreferenceFragment.html" rel="nofollow">developer.android.com/reference/android/preference/&hellip;</a></span>
+                &ndash;&nbsp;
+                    <a href="/users/950427/jared-burrows"
+                       title="12046 reputation"
+                       class="comment-user">Jared Burrows</a>
+                <span class="comment-date" dir="ltr"><span title="2014-10-22 13:58:26Z" class="relativetime-clean">Oct 22 '14 at 13:58</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-41648718" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@JaredBurrows you cant use PreferenceFragment pre 3.0 though</span>
+                &ndash;&nbsp;
+                    <a href="/users/599346/tyczj"
+                       title="20815 reputation"
+                       class="comment-user">tyczj</a>
+                <span class="comment-date" dir="ltr"><span title="2014-10-22 13:59:23Z" class="relativetime-clean">Oct 22 '14 at 13:59</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-41648730" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I&#39;m using them too. AFIK I need to link to a PreferenceActivity which uses the PreferenceFragments. However as tycyj points out I need them it also for legacy support.</span>
+                &ndash;&nbsp;
+                    <a href="/users/995926/rekire"
+                       title="19892 reputation"
+                       class="comment-user owner">rekire</a>
+                <span class="comment-date" dir="ltr"><span title="2014-10-22 13:59:42Z" class="relativetime-clean">Oct 22 '14 at 13:59</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-41648875" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The toolbar is just a view. You can add it anywhere.</span>
+                &ndash;&nbsp;
+                    <a href="/users/950427/jared-burrows"
+                       title="12046 reputation"
+                       class="comment-user">Jared Burrows</a>
+                <span class="comment-date" dir="ltr"><span title="2014-10-22 14:03:04Z" class="relativetime-clean">Oct 22 '14 at 14:03</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-49065153" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You can check out the example I&#39;ve made here: <a href="https://github.com/AndroidDeveloperLB/MaterialPreferenceLibrary" rel="nofollow">github.com/AndroidDeveloperLB/MaterialPreferenceLibrary</a></span>
+                &ndash;&nbsp;
+                    <a href="/users/878126/android-developer"
+                       title="29562 reputation"
+                       class="comment-user">android developer</a>
+                <span class="comment-date" dir="ltr"><span title="2015-05-27 21:47:22Z" class="relativetime-clean">May 27 at 21:47</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26509180" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>11</b> more comments</a>
+        </div>         
+    </td>
+</tr>        </table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								4 Answers
+                                <span style="display:none;" itemprop="answerCount">4</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="/questions/26509180/no-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="27455363"></a>
+<div id="answer-27455363" class="answer accepted-answer" data-answerid="27455363"  itemscope itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="27455363">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">52</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Very Similar to your own code but added xml to allow for set title:</p>
+
+<p>Continuing to use <code>PreferenceActivity</code>:</p>
+
+<p><code>settings_toolbar.xml :</code> </p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationContentDescription="@string/abc_action_bar_up_description"
+    android:background="?attr/colorPrimary"
+    app:navigationIcon="?attr/homeAsUpIndicator"
+    app:title="@string/action_settings"
+    /&gt;
+</code></pre>
+
+<p><code>SettingsActivity.java :</code></p>
+
+<pre><code>public class SettingsActivity extends PreferenceActivity {
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+
+        LinearLayout root = (LinearLayout)findViewById(android.R.id.list).getParent().getParent().getParent();
+        Toolbar bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+        root.addView(bar, 0); // insert at top
+        bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+}
+</code></pre>
+
+<p><code>Result :</code></p>
+
+<p><img src="http://i.stack.imgur.com/xYYco.png" alt="example"></p>
+
+<hr>
+
+<h1><strong>UPDATE (Gingerbread Compatibility) :</strong></h1>
+
+<p>As pointed out <a href="http://stackoverflow.com/questions/26564400/creating-a-preference-screen-with-support-v21-toolbar/27455330?noredirect=1#comment43790647_27455330">here</a>, Gingerbread Devices are returning NullPointerException on this line:</p>
+
+<pre><code>LinearLayout root = (LinearLayout)findViewById(android.R.id.list).getParent().getParent().getParent();
+</code></pre>
+
+<h2>FIX:</h2>
+
+<p><code>SettingsActivity.java :</code></p>
+
+<pre><code>public class SettingsActivity extends PreferenceActivity {
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        Toolbar bar;
+
+        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            LinearLayout root = (LinearLayout) findViewById(android.R.id.list).getParent().getParent().getParent();
+            bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+            root.addView(bar, 0); // insert at top
+        } else {
+            ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
+            ListView content = (ListView) root.getChildAt(0);
+
+            root.removeAllViews();
+
+            bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+
+
+            int height;
+            TypedValue tv = new TypedValue();
+            if (getTheme().resolveAttribute(R.attr.actionBarSize, tv, true)) {
+                height = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+            }else{
+                height = bar.getHeight();
+            }
+
+            content.setPadding(0, height, 0, 0);
+
+            root.addView(content);
+            root.addView(bar);
+        }
+
+        bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+}
+</code></pre>
+
+<p>Any issues with the above let me know!</p>
+
+<hr>
+
+<p><strong>UPDATE 2: TINTING WORKAROUND</strong></p>
+
+<p>As pointed out in many dev notes <code>PreferenceActivity</code> does not support tinting of elements, however by utilising a few internal classes you CAN achieve this. That is until these classes are removed. (Works using appCompat support-v7 v21.0.3).</p>
+
+<p>Add the following imports:</p>
+
+<pre><code>import android.support.v7.internal.widget.TintCheckBox;
+import android.support.v7.internal.widget.TintCheckedTextView;
+import android.support.v7.internal.widget.TintEditText;
+import android.support.v7.internal.widget.TintRadioButton;
+import android.support.v7.internal.widget.TintSpinner;
+</code></pre>
+
+<p>Then override the <code>onCreateView</code> method:</p>
+
+<pre><code>@Override
+public View onCreateView(String name, Context context, AttributeSet attrs) {
+    // Allow super to try and create a view first
+    final View result = super.onCreateView(name, context, attrs);
+    if (result != null) {
+        return result;
+    }
+
+    if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+        // If we're running pre-L, we need to 'inject' our tint aware Views in place of the
+        // standard framework versions
+        switch (name) {
+            case "EditText":
+                return new TintEditText(this, attrs);
+            case "Spinner":
+                return new TintSpinner(this, attrs);
+            case "CheckBox":
+                return new TintCheckBox(this, attrs);
+            case "RadioButton":
+                return new TintRadioButton(this, attrs);
+            case "CheckedTextView":
+                return new TintCheckedTextView(this, attrs);
+        }
+    }
+
+    return null;
+}
+</code></pre>
+
+<p><code>Result:</code></p>
+
+<p><img src="http://i.stack.imgur.com/PUzqh.png" alt="example 2"></p>
+
+<hr>
+
+<h2><em>AppCompat 22.1</em></h2>
+
+<p>AppCompat 22.1 introduced new tinted elements, meaning that there is no longer a need to utilise the internal classes to achieve the same effect as the last update. Instead follow this (still overriding <code>onCreateView</code>):</p>
+
+<pre><code>@Override
+public View onCreateView(String name, Context context, AttributeSet attrs) {
+    // Allow super to try and create a view first
+    final View result = super.onCreateView(name, context, attrs);
+    if (result != null) {
+        return result;
+    }
+
+    if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+        // If we're running pre-L, we need to 'inject' our tint aware Views in place of the
+        // standard framework versions
+        switch (name) {
+            case "EditText":
+                return new AppCompatEditText(this, attrs);
+            case "Spinner":
+                return new AppCompatSpinner(this, attrs);
+            case "CheckBox":
+                return new AppCompatCheckBox(this, attrs);
+            case "RadioButton":
+                return new AppCompatRadioButton(this, attrs);
+            case "CheckedTextView":
+                return new AppCompatCheckedTextView(this, attrs);
+        }
+    }
+
+    return null;
+}
+</code></pre>
+
+<hr>
+
+<p><strong>NESTED PREFERENCE SCREENS</strong></p>
+
+<p>A lot of people are experiencing issues with including the Toolbar in nested <code>&lt;PreferenceScreen /&gt;</code>s however, I have found a solution!! - After a lot of trial and error!</p>
+
+<p>Add the following to your <code>SettingsActivity</code>:</p>
+
+<pre><code>@SuppressWarnings("deprecation")
+@Override
+public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    super.onPreferenceTreeClick(preferenceScreen, preference);
+
+    // If the user has clicked on a preference screen, set up the screen
+    if (preference instanceof PreferenceScreen) {
+        setUpNestedScreen((PreferenceScreen) preference);
+    }
+
+    return false;
+}
+
+public void setUpNestedScreen(PreferenceScreen preferenceScreen) {
+    final Dialog dialog = preferenceScreen.getDialog();
+
+    Toolbar bar;
+
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+        LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent();
+        bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+        root.addView(bar, 0); // insert at top
+    } else {
+        ViewGroup root = (ViewGroup) dialog.findViewById(android.R.id.content);
+        ListView content = (ListView) root.getChildAt(0);
+
+        root.removeAllViews();
+
+        bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+
+        int height;
+        TypedValue tv = new TypedValue();
+        if (getTheme().resolveAttribute(R.attr.actionBarSize, tv, true)) {
+            height = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+        }else{
+            height = bar.getHeight();
+        }
+
+        content.setPadding(0, height, 0, 0);
+
+        root.addView(content);
+        root.addView(bar);
+    }
+
+    bar.setTitle(preferenceScreen.getTitle());
+
+    bar.setNavigationOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dialog.dismiss();
+        }
+    });
+}
+</code></pre>
+
+<p>The reason that <code>PreferenceScreen</code>'s are such a pain is because they are based as a wrapper dialog, so we need to capture the dialog layout to add the toolbar to it.</p>
+
+<hr>
+
+<h2>Toolbar Shadow</h2>
+
+<p>By design importing the <code>Toolbar</code> does not allow for elevation and shadowing in pre-v21 devices, so if you would like to have elevation on your <code>Toolbar</code> you need to wrap it in a <code>AppBarLayout</code>:</p>
+
+<p>`settings_toolbar.xml :</p>
+
+<pre><code>&lt;android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"&gt;
+
+   &lt;android.support.v7.widget.Toolbar
+       .../&gt;
+
+&lt;/android.support.design.widget.AppBarLayout&gt;
+</code></pre>
+
+<p>Not forgetting to add the add the Design Support library as a dependency in <code>build.gradle</code> file:</p>
+
+<pre><code>compile 'com.android.support:support-v4:22.2.0'
+compile 'com.android.support:appcompat-v7:22.2.0'
+compile 'com.android.support:design:22.2.0'
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/27455363" title="short permalink to this answer" class="short-link" id="link-post-27455363">share</a><span class="lsep">|</span><a href="/posts/27455363/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/27455363/revisions" title="show all edits to this post">edited <span title="2015-06-29 19:34:36Z" class="relativetime">Jun 29 at 19:34</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-12-13 03:49:32Z" class="relativetime">Dec 13 '14 at 3:49</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/566127/david-passmore"><div class="gravatar-wrapper-32"><img src="http://i.stack.imgur.com/P2eIk.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/566127/david-passmore">David Passmore</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,391</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="43 bronze badges"><span class="badge3"></span><span class="badgecount">43</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-27455363" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="20"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-44046816" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Nice one: i have used the first approach (Gingerbread is not on my target). Thank you!</span>
+                &ndash;&nbsp;
+                    <a href="/users/2013835/jj86"
+                       title="1500 reputation"
+                       class="comment-user">JJ86</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-07 13:30:41Z" class="relativetime-clean">Jan 7 at 13:30</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44307942" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It appears that the up button is broken on Gingerbread using this example.</span>
+                &ndash;&nbsp;
+                    <a href="/users/1299750/idunnololz"
+                       title="1661 reputation"
+                       class="comment-user">idunnololz</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-15 04:12:25Z" class="relativetime-clean">Jan 15 at 4:12</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44308091" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Update: The issue was that the ToolBar was placed <b>underneath</b> the content view due to the order in which they were added. The fix is to simply call <code>root.addView(bar);</code> after <code>root.addView(content);</code></span>
+                &ndash;&nbsp;
+                    <a href="/users/1299750/idunnololz"
+                       title="1661 reputation"
+                       class="comment-user">idunnololz</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-15 04:22:53Z" class="relativetime-clean">Jan 15 at 4:22</span></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44454807" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thank you @idunnololz I was not aware of this.</span>
+                &ndash;&nbsp;
+                    <a href="/users/566127/david-passmore"
+                       title="2391 reputation"
+                       class="comment-user">David Passmore</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-19 22:58:03Z" class="relativetime-clean">Jan 19 at 22:58</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-48010532" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thank you for your great answer, I gave you some days ago the accepted state. I just copied the tinting part, to make sure that it will look great :)</span>
+                &ndash;&nbsp;
+                    <a href="/users/995926/rekire"
+                       title="19892 reputation"
+                       class="comment-user owner">rekire</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-29 13:16:03Z" class="relativetime-clean">Apr 29 at 13:16</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-27455363" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>20</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+<div class="everyonelovesstackoverflow" id="careers3">
+        </div>
+  
+<a name="29854521"></a>
+<div id="answer-29854521" class="answer" data-answerid="29854521"  itemscope itemtype="http://schema.org/Answer">
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="29854521">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Use ActionBarActivity &amp; PreferenceFragment to solve the issue:</p>
+
+<p><strong>ActionBarActivity:</strong></p>
+
+<pre><code>public class SettingsActivity extends ActionBarActivity {
+
+@Override
+protected void onPostCreate(Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
+    getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
+}}
+</code></pre>
+
+<p><strong>PreferenceFragment:</strong></p>
+
+<pre><code>public class SettingsFragment extends PreferenceFragment {
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    addPreferencesFromResource(R.xml.settings_preferences);
+}}
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/29854521" title="short permalink to this answer" class="short-link" id="link-post-29854521">share</a><span class="lsep">|</span><a href="/posts/29854521/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-04-24 18:06:30Z" class="relativetime">Apr 24 at 18:06</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1388737/abdullah"><div class="gravatar-wrapper-32"><img src="http://i.stack.imgur.com/E6rWI.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1388737/abdullah">Abdullah</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,827</span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-29854521" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-47834929" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The ActionBarActivity is deprecated.</span>
+                &ndash;&nbsp;
+                    <a href="/users/995926/rekire"
+                       title="19892 reputation"
+                       class="comment-user owner">rekire</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-24 18:08:04Z" class="relativetime-clean">Apr 24 at 18:08</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-47835348" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@rekire its android.support.v7.app.ActionBarActivity</span>
+                &ndash;&nbsp;
+                    <a href="/users/1388737/abdullah"
+                       title="1827 reputation"
+                       class="comment-user">Abdullah</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-24 18:20:40Z" class="relativetime-clean">Apr 24 at 18:20</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-47835522" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">That one is deprecated since the version 22.1.0</span>
+                &ndash;&nbsp;
+                    <a href="/users/995926/rekire"
+                       title="19892 reputation"
+                       class="comment-user owner">rekire</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-24 18:25:54Z" class="relativetime-clean">Apr 24 at 18:25</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-48118287" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Just extend AppCompatActivity instead of ActionBarActivity.</span>
+                &ndash;&nbsp;
+                    <a href="/users/1918668/sammyt"
+                       title="171 reputation"
+                       class="comment-user">SammyT</a>
+                <span class="comment-date" dir="ltr"><span title="2015-05-02 07:26:21Z" class="relativetime-clean">May 2 at 7:26</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-50135054" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Worked for me, and much simpler than the above.</span>
+                &ndash;&nbsp;
+                    <a href="/users/873263/aaron-blenkush"
+                       title="2134 reputation"
+                       class="comment-user">Aaron Blenkush</a>
+                <span class="comment-date" dir="ltr"><span title="2015-06-25 17:30:08Z" class="relativetime-clean">Jun 25 at 17:30</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-29854521" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="26995921"></a>
+<div id="answer-26995921" class="answer" data-answerid="26995921"  itemscope itemtype="http://schema.org/Answer">
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26995921">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I ended in adding the Toolbar myself with this simple code:</p>
+
+<pre><code>// get the root container of the preferences list
+LinearLayout root = (LinearLayout)findViewById(android.R.id.list).getParent().getParent().getParent();
+Toolbar bar = (Toolbar)LayoutInflater.from(this).inflate(R.layout.preferences_toolbar, root, false);
+root.addView(bar, 0); // insert at top
+bar.setNavigationOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        finish();
+    }
+});
+</code></pre>
+
+<p>Here is my preferences_toolbar.xml:</p>
+
+<pre><code>&lt;android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationContentDescription="@string/abc_action_bar_up_description"
+    android:background="?attr/colorPrimary"
+    app:navigationIcon="?attr/homeAsUpIndicator"
+    app:theme="@style/Theme.Toolbar" /&gt;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/26995921" title="short permalink to this answer" class="short-link" id="link-post-26995921">share</a><span class="lsep">|</span><a href="/posts/26995921/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature owner">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-11-18 13:48:37Z" class="relativetime">Nov 18 '14 at 13:48</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/995926/rekire"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/ff37883faea028e0fe7ae0859baa9bc9?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/995926/rekire">rekire</a><br>
+        <span class="reputation-score" title="reputation score 19892" dir="ltr">19.9k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="60 silver badges"><span class="badge2"></span><span class="badgecount">60</span></span><span title="127 bronze badges"><span class="badge3"></span><span class="badgecount">127</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26995921" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26995921" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="26933254"></a>
+<div id="answer-26933254" class="answer" data-answerid="26933254"  itemscope itemtype="http://schema.org/Answer">
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26933254">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Hi I am not if you still have this issue. But I figure I will post what I did to resolve this and hope it will help someone.</p>
+
+<p>1) First off, you might have noticed that PreferenceActivity extends ListActivity which in turns extends from Activity. </p>
+
+<p>According to the comments on the developers blog (<a href="http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html" rel="nofollow">http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html</a>), to use v21 all your activities must inherit from ActionBarActivity. So there is your issue.</p>
+
+<p>2) The steps I used to resolve are :</p>
+
+<pre><code>a) Make sure that you set the Theme of your PreferenceActivity to inherits one ot the Theme.AppCompat Themes.
+
+b) Make your class PreferenceActivity extends ActionBarActivity.
+
+c) Use the PreferenceFragment as your container for all your preferences.
+</code></pre>
+
+<p>This should resolve it.</p>
+
+<p>Cheers!</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/26933254" title="short permalink to this answer" class="short-link" id="link-post-26933254">share</a><span class="lsep">|</span><a href="/posts/26933254/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-11-14 15:22:30Z" class="relativetime">Nov 14 '14 at 15:22</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/4067163/afrikandroid"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/1ded55e418dd60fc900ad4f58b3f3faf?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/4067163/afrikandroid">AfrikAndroid</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">31</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26933254" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-43879507" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">&quot;Make your class PreferenceActivity extends ActionBarActivity&quot; - but HOW?</span>
+                &ndash;&nbsp;
+                    <a href="/users/638471/vbence"
+                       title="11915 reputation"
+                       class="comment-user">vbence</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-01 19:43:31Z" class="relativetime-clean">Jan 1 at 19:43</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44181559" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Check out this link here:  <a href="http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library/?utm_source=Android+Weekly&amp;utm_campaign=624d204414-Android_Weekly_135&amp;utm_medium=email&amp;utm_term=0_4eb677ad19-624d204414-337844421" rel="nofollow">code.hootsuite.com/&hellip;</a></span>
+                &ndash;&nbsp;
+                    <a href="/users/4067163/afrikandroid"
+                       title="31 reputation"
+                       class="comment-user">AfrikAndroid</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-11 18:05:44Z" class="relativetime-clean">Jan 11 at 18:05</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44182561" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks, I think this comes as close as possible. The real pain is that  PreferenceActivity has built-in navigation through <i>loadHeadersFromResource</i>, with fragments you have to build the navigation yourself.</span>
+                &ndash;&nbsp;
+                    <a href="/users/638471/vbence"
+                       title="11915 reputation"
+                       class="comment-user">vbence</a>
+                <span class="comment-date" dir="ltr"><span title="2015-01-11 18:58:36Z" class="relativetime-clean">Jan 11 at 18:58</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26933254" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+									<a name='new-answer'></a>
+						<form id="post-form" action="/questions/26509180/answer/submit" method="post"  class="post-form">
+						    <input type="hidden" id="post-id" value="26509180" />
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" />
+                            <input type="hidden" name="referrer" value="http://stackoverflow.com/search?q=preferenceactivity+actionbar"/>
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="6717241b85dbacac3e781e5bbfca3db7">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item dno new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="/users/login?returnurl=%2fquestions%2f26509180%2fno-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid" />
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false" />
+                    <input type="hidden" name="use-google" class="use-google" value="false" />
+                    <input type="button" class="submit-openid" value="Submit" style="display:none" />
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f26509180%2fno-actionbar-in-preferenceactivity-after-upgrade-to-support-library-v21%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href='http://stackexchange.com/legal/privacy-policy' target='_blank'>privacy policy</a> and <a href='http://stackexchange.com/legal/terms-of-service' target='_blank'>terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1" />								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you&#39;re looking for?							Browse other questions tagged <a href="/questions/tagged/android" class="post-tag" title="show questions tagged &#39;android&#39;" rel="tag"><img src="//i.stack.imgur.com/tKsDb.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="/questions/tagged/android-support-library" class="post-tag" title="show questions tagged &#39;android-support-library&#39;" rel="tag">android-support-library</a> <a href="/questions/tagged/preferenceactivity" class="post-tag" title="show questions tagged &#39;preferenceactivity&#39;" rel="tag">preferenceactivity</a> <a href="/questions/tagged/android-5.0-lollipop" class="post-tag" title="show questions tagged &#39;android-5.0-lollipop&#39;" rel="tag">android-5.0-lollipop</a>  or <a href="/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2014-10-22 13:55:27Z"><b>8 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>7920 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2015-07-04 18:50:41Z">4 days ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </table>
+			    </div>
+						
+			<div class="everyonelovesstackoverflow" id="careers2">
+        </div>
+        <div id="hireme">
+            <script>
+window.careers_adurl="//careers.stackoverflow.com/gethired/companyjs",window.careers_cssurl="//cdn-careers.sstatic.net/careers/gethired/company.min.css?v=b7dd614a01cc",window.careers_cssurl2="//cdn-careers.sstatic.net/careers/gethired/sidebar.min.css?v=19f7c7921388",window.careers_adselector="#hireme",StackExchange.ready(function(){var e="//cdn-careers.sstatic.net/careers/gethired/company-loader.min.js?v=47d5fb6af728";$.ajax({url:e,dataType:"script",cache:!1})});;(function(c){var a=window.$,k=window.StackExchange,d=decodeURIComponent,f=encodeURIComponent,e=document,l,b,h={},g=location.hash;if(g.length>1){g.substr(1).split("&").forEach(function(n){var o=n.split("=");this[d(o[0])]=d(o[1])},h)}b=h.ac||h.accountid||(k&&k.options&&k.options.user&&k.options.user.accountId);if(b){h.ac=b}if(!h.tags){l=a(".post-taglist .post-tag").map(function(){return a(this).text()});if(l.length>0){h.tags=Array.prototype.join.call(l,";")}}if(g==="#large"){h.l=1}if(g==="#abort"){h.abort=1}var m=["l","ip","ac","eng","prov","tags","theme"];var i=Object.keys(h).filter(function(n){return m.indexOf(n)!==-1}).map(function(n){return f(n)+"="+f(h[n])}).join("&");var j=e.createElement("script");j.type="text/javascript";j.src=c+(c.indexOf("?")===-1?"?":"&")+i;e.body.appendChild(j)}).apply(null, ["//clc.stackoverflow.com/cp/p"]);            </script>
+        </div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="/q/17849193" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">87</div>
+	</a>
+	<a href="/questions/17849193/how-to-add-action-bar-from-support-library-into-preferenceactivity" class="question-hyperlink">How to add Action Bar from support library into PreferenceActivity?</a>
+</div><div class="spacer">
+	<a href="/q/26564400" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">36</div>
+	</a>
+	<a href="/questions/26564400/creating-a-preference-screen-with-support-v21-toolbar" class="question-hyperlink">Creating a Preference Screen with support (v21) Toolbar</a>
+</div><div class="spacer">
+	<a href="/q/9783368" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">42</div>
+	</a>
+	<a href="/questions/9783368/alternatives-to-preferencefragment-with-android-support-v4" class="question-hyperlink">Alternatives to PreferenceFragment with android-support-v4</a>
+</div><div class="spacer">
+	<a href="/q/16374820" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">23</div>
+	</a>
+	<a href="/questions/16374820/action-bar-home-button-not-functional-with-nested-preferencescreen" class="question-hyperlink">Action Bar Home Button not functional with nested PreferenceScreen</a>
+</div><div class="spacer">
+	<a href="/q/26506751" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/26506751/actionbar-aka-toolbar-is-black-after-upgrade-to-support-library-v21" class="question-hyperlink">ActionBar aka Toolbar is black after upgrade to Support Library v21</a>
+</div><div class="spacer">
+	<a href="/q/28734205" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/28734205/how-to-setup-preference-activity-correctly" class="question-hyperlink">How to setup preference activity correctly?</a>
+</div><div class="spacer">
+	<a href="/q/27076511" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/27076511/cant-add-action-bar-to-preference-activity" class="question-hyperlink">Cant add action bar to preference activity</a>
+</div><div class="spacer">
+	<a href="/q/29357292" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="/questions/29357292/keep-the-actionbar-displayed-in-when-changing-preferencescreen" class="question-hyperlink">Keep the actionbar displayed in when changing PreferenceScreen</a>
+</div><div class="spacer">
+	<a href="/q/29435841" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/29435841/java-multiple-inheritance-actionbaractivity" class="question-hyperlink">java multiple inheritance ActionBarActivity</a>
+</div><div class="spacer">
+	<a href="/q/30720980" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="/questions/30720980/wrong-theme-being-applied-to-preferenceactivity-with-xml-reference" class="question-hyperlink">Wrong Theme being applied to PreferenceActivity with xml reference</a>
+</div>					<div class="spacer more">
+				<a href="/questions/linked/26509180">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer">
+<a href="/q/17849193" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">87
+    </div>
+</a><a href="/questions/17849193/how-to-add-action-bar-from-support-library-into-preferenceactivity" class="question-hyperlink">How to add Action Bar from support library into PreferenceActivity?</a>
+</div>
+<div class="spacer">
+<a href="/q/17881297" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">15
+    </div>
+</a><a href="/questions/17881297/actionbar-with-support-library-and-fragments-overlay-content" class="question-hyperlink">ActionBar with support library and Fragments overlay content</a>
+</div>
+<div class="spacer">
+<a href="/q/26506751" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="/questions/26506751/actionbar-aka-toolbar-is-black-after-upgrade-to-support-library-v21" class="question-hyperlink">ActionBar aka Toolbar is black after upgrade to Support Library v21</a>
+</div>
+<div class="spacer">
+<a href="/q/26557790" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">6
+    </div>
+</a><a href="/questions/26557790/styling-the-searchview-widget-using-support-library-v21" class="question-hyperlink">Styling the SearchView Widget using support library v21</a>
+</div>
+<div class="spacer">
+<a href="/q/26972161" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="/questions/26972161/android-5-0-checkboxes-in-preferences-are-not-visible" class="question-hyperlink">Android 5.0 - checkboxes in preferences are not visible</a>
+</div>
+<div class="spacer">
+<a href="/q/27230035" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="/questions/27230035/show-custom-support-dialog-fragments-in-normal-activity-preferenceactivity" class="question-hyperlink">Show custom support dialog fragments in normal activity (PreferenceActivity)?</a>
+</div>
+<div class="spacer">
+<a href="/q/27298282" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="/questions/27298282/android-actionbars-custom-view-not-filling-parent" class="question-hyperlink">Android ActionBar&#39;s custom view not filling parent</a>
+</div>
+<div class="spacer">
+<a href="/q/27474766" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">9
+    </div>
+</a><a href="/questions/27474766/how-to-show-the-shadow-of-the-actionbartoolbar-of-the-support-library-on-all-an" class="question-hyperlink">How to show the shadow of the ActionBar&amp;Toolbar of the support library on all Android versions?</a>
+</div>
+<div class="spacer">
+<a href="/q/27875467" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="/questions/27875467/drawing-error-on-toolbar-and-statusbar-after-upgrade-to-appcompat-v21" class="question-hyperlink">Drawing error on toolbar and statusbar after upgrade to AppCompat v21</a>
+</div>
+<div class="spacer">
+<a href="/q/28465214" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="/questions/28465214/using-my-lollipop-theme-on-lollipop" class="question-hyperlink">Using my Lollipop theme (on Lollipop)!</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="//stackexchange.com/questions?tab=hot" 
+           class="js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/17510/the-jewellers-dilemma" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The Jeweller&#39;s Dilemma
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/179356/gain-of-filter-is-higher-than-calculated-why" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Gain of filter is higher than calculated - why?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/95038/anthology-book-with-story-about-robotic-bombers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Anthology book with story about robotic bombers
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/16669/how-important-is-it-to-have-talent-to-become-airline-pilot" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How important is it to have talent to become airline pilot?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/645923/what-is-the-difference-between-scp-and-cp" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the difference between scp and cp?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/52809/40-numbers-in-9-bytes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    40 Numbers in 9 Bytes
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/16690/are-there-any-alternative-passenger-airline-business-models" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are there any &quot;alternative&quot; passenger airline business models?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/257813/what-does-2007-date-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does &quot;2007 - date&quot; mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-webmasters" title="Webmasters Stack Exchange"></div><a href="http://webmasters.stackexchange.com/questions/82981/launching-a-news-site-without-or-with-content" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:45 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Launching a news site without or with content?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/106454/sp-cursoropen-and-parallelism" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    sp_cursoropen and parallelism
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/227234/lego-game-with-a-trashcan-eating-robot" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Lego game with a trashcan eating robot
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/93460/which-parts-of-an-https-connection-can-be-revealed" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Which parts of an HTTPS connection can be revealed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/257367/idiom-for-someone-who-buys-all-the-best-gear-to-do-something-before-they-even-ha" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Idiom for someone who buys all the best gear to do something before they even have a basic proficiency?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/48504/do-i-need-to-do-revision-on-my-accepted-paper" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do I need to do revision on my accepted paper?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/193246/how-can-shock-waves-travel-faster-than-sound" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can shock waves travel faster than sound?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/31316581/a-peculiar-feature-of-exception-type-inference-in-java-8" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A peculiar feature of exception type inference in Java 8
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/49388/is-it-appropriate-to-include-drawings-in-a-cover-letter" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it appropriate to include drawings in a cover letter?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/48388/how-can-i-sell-independently-created-software-to-my-university" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I sell independently created software to my university?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/20168/should-ai-have-faith-too" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should AI have faith too?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-writers" title="Writers Stack Exchange"></div><a href="http://writers.stackexchange.com/questions/18082/what-to-do-with-cliched-metaphors" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What to do with cliched metaphors?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1354044/can-math-be-subjective" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can math be subjective?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/179114/is-circuit-design-based-on-min-max-values-good-practice" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is circuit design based on min/max values good practice?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/258031/is-there-a-word-or-short-phrase-to-describe-a-movie-that-wins-many-awards" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a word or short phrase to describe a movie that wins many awards
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/96319/go-on-mock-my-ide" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Go on, mock my IDE
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="/feeds/question/26509180" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/26509180/ivc/67a1');});
+</script>
+<noscript>
+    <div><img src="/posts/26509180/ivc/67a1" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="/tour">tour</a>
+                    <a href="/help">help</a>
+                    <a href="http://blog.stackoverflow.com?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com">chat</a>
+                    <a href="http://data.stackexchange.com">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tr>
+            <th colspan=3>
+                Technology
+            </th>
+            <th >
+                Life / Arts
+            </th>
+            <th >
+                Culture / Recreation
+            </th>
+            <th >
+                Science
+            </th>
+            <th >
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="//stackoverflow.com" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="//serverfault.com" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="//superuser.com" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="//webapps.stackexchange.com" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="//askubuntu.com" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="//webmasters.stackexchange.com" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="//gamedev.stackexchange.com" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="//tex.stackexchange.com" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//programmers.stackexchange.com" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="//unix.stackexchange.com" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="//apple.stackexchange.com" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="//wordpress.stackexchange.com" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="//gis.stackexchange.com" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="//electronics.stackexchange.com" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="//android.stackexchange.com" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="//security.stackexchange.com" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//dba.stackexchange.com" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="//drupal.stackexchange.com" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="//sharepoint.stackexchange.com" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="//ux.stackexchange.com" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="//mathematica.stackexchange.com" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="//salesforce.stackexchange.com" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//photo.stackexchange.com" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="//scifi.stackexchange.com" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="//graphicdesign.stackexchange.com" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="//cooking.stackexchange.com" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="//diy.stackexchange.com" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="//money.stackexchange.com" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="//academia.stackexchange.com" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (10)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//english.stackexchange.com" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="//skeptics.stackexchange.com" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="//judaism.stackexchange.com" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="//travel.stackexchange.com" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="//christianity.stackexchange.com" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="//gaming.stackexchange.com" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="//bicycles.stackexchange.com" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="//rpg.stackexchange.com" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//math.stackexchange.com" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="//stats.stackexchange.com" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="//cstheory.stackexchange.com" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="//physics.stackexchange.com" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="//mathoverflow.net" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//stackapps.com" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="//meta.stackexchange.com" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="//area51.stackexchange.com" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="//careers.stackoverflow.com">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo &#169; 2015 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.7.9.2711
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|android|android-support-library|preferenceactivity|android-5.0-lollipop|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>            
+    </body>
+</html>

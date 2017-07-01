@@ -1,0 +1,86 @@
+
+
+<html>
+
+    
+
+  <head>
+
+    <link rel="alternate" type="text/xml" href="USCTide.asmx?disco"/>
+
+    <style type="text/css">
+    
+		BODY { color: #000000; background-color: white; font-family: Verdana; margin-left: 0px; margin-top: 0px; }
+		#content { margin-left: 30px; font-size: .70em; padding-bottom: 2em; }
+		A:link { color: #336699; font-weight: bold; text-decoration: underline; }
+		A:visited { color: #6699cc; font-weight: bold; text-decoration: underline; }
+		A:active { color: #336699; font-weight: bold; text-decoration: underline; }
+		A:hover { color: cc3300; font-weight: bold; text-decoration: underline; }
+		P { color: #000000; margin-top: 0px; margin-bottom: 12px; font-family: Verdana; }
+		pre { background-color: #e5e5cc; padding: 5px; font-family: Courier New; font-size: x-small; margin-top: -5px; border: 1px #f0f0e0 solid; }
+		td { color: #000000; font-family: Verdana; font-size: .7em; }
+		h2 { font-size: 1.5em; font-weight: bold; margin-top: 25px; margin-bottom: 10px; border-top: 1px solid #003366; margin-left: -15px; color: #003366; }
+		h3 { font-size: 1.1em; color: #000000; margin-left: -15px; margin-top: 10px; margin-bottom: 10px; }
+		ul { margin-top: 10px; margin-left: 20px; }
+		ol { margin-top: 10px; margin-left: 20px; }
+		li { margin-top: 10px; color: #000000; }
+		font.value { color: darkblue; font: bold; }
+		font.key { color: darkgreen; font: bold; }
+		.heading1 { color: #ffffff; font-family: Tahoma; font-size: 26px; font-weight: normal; background-color: #003366; margin-top: 0px; margin-bottom: 0px; margin-left: -30px; padding-top: 10px; padding-bottom: 3px; padding-left: 15px; width: 105%; }
+		.button { background-color: #dcdcdc; font-family: Verdana; font-size: 1em; border-top: #cccccc 1px solid; border-bottom: #666666 1px solid; border-left: #cccccc 1px solid; border-right: #666666 1px solid; }
+		.frmheader { color: #000000; background: #dcdcdc; font-family: Verdana; font-size: .7em; font-weight: normal; border-bottom: 1px solid #dcdcdc; padding-top: 2px; padding-bottom: 2px; }
+		.frmtext { font-family: Verdana; font-size: .7em; margin-top: 8px; margin-bottom: 0px; margin-left: 32px; }
+		.frmInput { font-family: Verdana; font-size: 1em; }
+		.intro { margin-left: -15px; }
+           
+    </style>
+
+    <title>USCTide Web Service</title>
+
+  </head>
+
+  <body>
+
+    <div id="content">
+
+      <p class="heading1">USCTide</p><br>
+
+      <span>
+          <p class="intro">The C# ASP.NET web service provides tidal water level prediction for U.S. coastal states and in Local Standard Time. Tide prediction is available at 300 tide stations along U.S. east and west coasts, Alaska, and Hawaii, from 1970 to 2037. Tide prediction from USCTide is NOT FOR NAVIGATION. Tide knowledge is from NOAA and XTide. USCTide was funded by NASA.</p>
+      </span>
+
+      <span>
+
+          <p class="intro">The following operations are supported.  For a formal definition, please review the <a href="USCTide.asmx?WSDL">Service Description</a>.</p>
+
+          
+              <ul>
+            
+              <li>
+                <a href="USCTide.asmx?op=GetHarmonicTide">GetHarmonicTide</a>
+                <span>
+                  <br>The webmethod will return a single tidal water level. Time at input/output here is Local Standard Time.
+                </span>
+              </li>
+              <p>
+            
+              <li>
+                <a href="USCTide.asmx?op=GetHarmonicTides">GetHarmonicTides</a>
+                <span>
+                  <br>The webmethod will return an array of tidal water levels. Each element of the array is a TimeTide object containing (year, month, day, hour, minute, tideHeight). The TimeTide object together with the USCTide web service is accessible to web applications. The integer stationOrder inside (soap:Body) ... (/soap:Body) must be one record of StationID column in the table StationInventory in TideStations.mdb database. Time at input/output is Local Standard Time, instead of Coordinated Universal Time. Time Step is time interval in tide predictions, in minutes. The first character or the first two characters of the string timeStepInMintue inside (soap:Body) ... (/soap:Body) should be numeric, e.g. 6 minutes or 60 minutes. For consecutive two years of tide prediction, Time Step = 60 minutes. For one year of tide prediction, Time Step >= 30 minutes. For two months of tide prediction, Time Step >= 5 minutes. For one day of tide prediction, Time Step >= 1 minutes. If you want Time Step < 1 minutes or an example source code of a web application consuming the USCTide web service, you may ask Dr. Michael E. Hodgson at 803.777.8976.
+                </span>
+              </li>
+              <p>
+            
+              </ul>
+            
+      </span>
+
+      
+      
+
+      
+
+
+  </body>
+</html>

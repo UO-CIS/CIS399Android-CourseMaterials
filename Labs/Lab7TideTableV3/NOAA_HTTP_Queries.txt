@@ -1,0 +1,8 @@
+Query for a list of Oregon tide stations in text format:
+
+http://tidesandcurrents.noaa.gov/station_index.shtml?state=Oregon&id1=943
+
+Query for current Waldport tide table in XML
+
+http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?datatype=Annual+XML&Stationid=9434939
+

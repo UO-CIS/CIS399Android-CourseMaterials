@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Remove the next line to disable mobile mode -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="description here" />
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <title>CO-OPS Data Retrieval API</title>          
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    <ul class="nav nav-list well">
+                        <li class="nav-header">Jump to:</li>
+                        <li>
+                            <a href="#station">Station ID</a>
+                        </li>
+                        <li>
+                            <a href="#timerange">Date & Time</a>
+                        </li>
+                        <li>
+                            <a href="#products">Data Products</a>
+                        </li>
+                        <li>
+                            <a href="#datum">Datum</a>
+                        </li>
+                        <li>
+                            <a href="#units">Units</a>
+                        </li>
+                        <li>
+                            <a href="#timezone">Time Zone</a>
+                        </li>
+                        <li>
+                            <a href="#format">Format</a>
+                        </li>
+                        <li>
+                            <a href="#interval">Interval</a>
+                        </li>
+                        <li>
+                            <a href="#bin">Bin</a>
+                        </li>
+                        <li>
+                            <a href="#application">Application</a>
+                        </li>
+                        <li>
+                            <a href="#maximum">Retrieval Time</a>
+                        </li>
+                        <li>
+                            <a href="#requestResponse">Sample URL </a>
+                        </li>
+                        <li>
+                            <a href="#error">Error Message</a>
+                        </li>                       
+                    </ul>
+                </div>
+                <div class="span9">
+                    <div class="hero well">
+                        <h3>CO-OPS API For Data Retrieval </h3>
+                    </div>
+                    The CO-OPS API  for data retrieval  can be used to retrieve observations and predictions from CO-OPS stations.
+                    <a name="station"></a>
+                    <h4>Station ID</h4>
+                    A 7 character station ID, or a currents station ID.
+                    Specify the station ID with the "station=" parameter.<br>
+                    <strong>Example:</strong> station=9414290
+                    <br>
+                    Station listings for various products can be viewed at <a href="http://tidesandcurrents.noaa.gov">http://tidesandcurrents.noaa.gov</a> or viewed on a map at <a href="http://tidesandcurrents.noaa.gov/map">Tides & Currents Station Map</a>
+                    <a name="timerange"></a>
+                    <h4>Date & Time</h4>
+                    The API understands several parameters related to date ranges.
+                    <br>
+                    All dates can be formatted as follows: 
+                    <br>
+                    yyyyMMdd, yyyyMMdd HH:mm, MM/dd/yyyy, or MM/dd/yyyy HH:mm
+                    <br><br>
+                    One the 4 following sets of parameters can be specified in a request:
+                    <br><br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Parameter Name (s)</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>begin_date and end_date</td>
+                            <td>Specify the date/time range of retrieval</td>
+                        </tr>
+                        <tr>
+                            <td>date</td>
+                            <td>Valid options for the date parameters are: latest (last data point available within the last 18 min), today, or recent (last 72 hours)</td>
+                        </tr>
+                        <tr>
+                            <td>begin_date and a range</td>
+                            <td>Specify a begin date and a number of hours to retrieve data starting from that date
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>end_date and a range</td>
+                            <td>Specify an end date and a number of hours to retrieve data ending at that date</td>
+                        </tr>
+                        <tr>
+                            <td>range</td>
+                            <td>Specify a number of hours to go back from now and retrieve data for that date range</td>
+                        </tr>
+                    </table>
+                    <dl>
+                        <dt>January 1st, 2012 through January 2nd, 2012</dt>
+                        <dd>begin_date=20120101&end_date=20120102</dd>
+                        <dt>48 hours beginning on April 15, 2012</dt>
+                        <dd>begin_date=20120415&range=48</dd>
+                        <dt>48 hours ending on March 17, 2012</dt>
+                        <dd>end_date=20120307&range=48</dd>
+                        <dt>Today's data</dt>
+                        <dd>date=today</dd>
+                        <dt>The last 3 days of data</dt>
+                        <dd>date=recent</dd>                        
+                        <dt>The last data point available within the last 18 min</dt>
+                        <dd>date=latest</dd>
+                        <dt>The last 24 hours from now</dt>
+                        <dd>range=24</dd>
+                        <dt>The last 3 hours from now</dt>
+                        <dd>range=3</dd>
+                    </dl>
+                    <a name="products"></a>
+                    <h4>Data Products</h4>
+                    Specify the type of data with the "product=" option parameter.
+                    <br><br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>water_level</td>
+                            <td>Preliminary or verified water levels, depending on availability.</td>
+                        </tr>                      
+                        <tr>
+                            <td>air_temperature</td>
+                            <td>Air temperature as measured at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>water_temperature</td>
+                            <td>Water temperature as measured at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>wind</td>
+                            <td>Wind speed, direction, and gusts as measured at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>air_pressure</td>
+                            <td>Barometric pressure as measured at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>air_gap</td>
+                            <td>Air Gap (distance between a bridge and the water's surface) at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>conductivity</td>
+                            <td>The water's conductivity as measured at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>visibility</td>
+                            <td>Visibility from the station's visibility sensor.  A measure of atmospheric clarity.</td>
+                        </tr>
+                        <tr>
+                            <td>humidity</td>
+                            <td>Relative humidity as measured at the station.</td>
+                        </tr>
+                        <tr>
+                            <td>salinity</td>
+                            <td>Salinity and specific gravity data for the station.</td>
+                        </tr>    
+                        <tr>
+                            <td>hourly_height</td>
+                            <td>Verified hourly height water level data for the station.</td>
+                        </tr>
+                        <tr>
+                            <td>high_low</td>
+                            <td>Verified high/low water level data for the station.</td>
+                        </tr>
+                        <tr>
+                            <td>daily_mean</td>
+                            <td>Verified daily mean water level data for the station.</td>
+                        </tr>
+                        <tr>
+                            <td>monthly_mean</td>
+                            <td>Verified monthly mean water level data for the station.</td>
+                        </tr>
+                        <tr>
+                            <td>one_minute_water_level</td>
+                            <td>One minute water level data for the station.</td>
+                        </tr>
+                        <tr>
+                            <td>predictions</td>
+                            <td>6 minute predictions water level data for the station.</td>
+                        </tr>
+                        <tr>
+                            <td>datums</td>
+                            <td>datums data for the stations.</td>
+                        </tr>
+                        <tr>
+                            <td>currents</td>
+                            <td>Currents data for currents stations.</td>
+                        </tr>   
+
+                    </table>
+                    <a name="datum"></a>
+                    <h4>Datum</h4>
+                    The datum can be specified with the "datum=" option parameter.
+                    <span class="label label-info">Note!</span> Datum is mandatory for all water level products.
+                    <br><br> 
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>MHHW</td>
+                            <td>Mean Higher High Water</td>
+                        </tr>
+                        <tr>
+                            <td>MHW</td>
+                            <td>Mean High Water</td>
+                        </tr>
+                        <tr>
+                            <td>MTL</td>
+                            <td>Mean Tide Level</td>
+                        </tr>
+                        <tr>
+                            <td>MSL</td>
+                            <td>Mean Sea Level</td>
+                        </tr>
+                        <tr>
+                            <td>MLW</td>
+                            <td>Mean Low Water</td>
+                        </tr>
+                        <tr>
+                            <td>MLLW</td>
+                            <td>Mean Lower Low Water</td>
+                        </tr>
+                        <tr>
+                            <td>NAVD</td>
+                            <td>North American Vertical Datum</td>
+                        </tr>
+                        <tr>
+                            <td>STND</td>
+                            <td>Station Datum</td>
+                        </tr>
+                    </table>
+                    <a name="units"></a>
+                    <h4>Units</h4>
+                    Metric or english units.  The unit type can be specified with the "units=" option parameter.
+                    <br><br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>metric</td>
+                            <td>Metric (Celsius, meters) units</td>
+                        </tr>
+                        <tr>
+                            <td>english</td>
+                            <td>English (fahrenheit, feet) units</td>
+                        </tr>
+                    </table>
+                    <strong>Example:</strong> units=english<br>
+                    Retrieve data in english units.
+                    <a name="timezone"></a>
+                    <h4>Time Zone</h4>
+                    gmt, lst or lst_ldt.  The time_zone can be specified with the "time_zone=" option parameter.
+                    <br><br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>gmt</td>
+                            <td>Greenwich Mean Time</td>
+                        </tr>
+                        <tr>
+                            <td>lst</td>
+                            <td>Local Standard Time.  The time local to the requested station.</td>
+                        </tr>
+                        <tr>
+                            <td>lst_ldt</td>
+                            <td>Local Standard/Local Daylight Time.  The time local to the requested station.</td>
+                        </tr>
+                    </table>                  
+                    <strong>Example:</strong> time_zone=gmt<br>
+                    Retrieve data with GMT date/times.
+                    <a name="format"></a>
+                    <h4>Format</h4>
+                    The output format can be specified with the "format=" option parameter.
+                    <br><br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>                        
+                        <tr>
+                            <td>json</td>
+                            <td>Javascript Object Notation.  This format is useful for direct import to a javascript plotting library.  Parsers are available for other languages such as Java and Perl.
+                        </tr>
+                        <tr>
+                            <td>xml</td>
+                            <td>Extensible Markup Language.  This format is an industry standard for data.</td>
+                        </tr>
+                        <tr>
+                            <td>csv</td>
+                            <td>Comma Separated Values.  This format is suitable for export to Microsoft Excel or other spreadsheet programs.  This is also the most easily human-readable format.
+                        </tr>
+                    </table>
+                    <a name="interval"></a>
+                    <h4>Interval</h4>
+                    The interval for which Meteorological data is returned                    
+                    <br><span class="label label-info">Note!</span> The default is 6 minute interval and there is no need to specify it. The hourly interval is supported for Met data and Predictions data only.
+                    <br> <strong>Example:</strong>interval=h --- Will retrieve hourly Met data
+                    <br><br> 
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>h</td>
+                            <td>Hourly Met data and predictions data will be returned</td>
+                        </tr>
+                    </table>                    
+                    <a name="interval"></a>
+                    <h4>Bin</h4>
+                    The bin number for the specified currents station 
+                    <br> <strong>Example:</strong>bin=4 --- Will retrieve data for bin number 4 
+                    <br> <span class="label label-info">Note!</span> If a bin is not specified for a PORTS station, the data is returned using a predefined real-time bin.
+                    <br><br> 
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>3</td>
+                            <td>Currents data for bin number 3 of the specified station is returned</td>
+                        </tr>
+                    </table>
+                    <a name="application"></a>
+                    <h4>Application</h4>
+                    If you are a CO-OPS developer, please include the application name calling the API. 
+                    If you are an external user, please provide the name of your organization for this parameter when calling this API.
+                    <br><strong>Examples:</strong>
+                    <br>application=Web Services<br>
+                    application=Tides_and_Currents<br>
+                    application=NDBC
+                    <br><br> 
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Web_Services</td>
+                            <td>The internal application Web Services has called the API</td>
+                        </tr>
+                        <tr>
+                            <td>NDBC</td>
+                            <td>A user from the National Data Buoy Center has called the API</td>
+                        </tr>
+                    </table>
+                    <a name="maximum"></a>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Maximum Retrieval Time</th>
+                                <th>Data Types</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>31 days</td>
+                            <td>All 6 minute data products</td>
+                        </tr>
+                        <tr>
+                            <td>1 year</td>
+                            <td>Hourly Height, and High/Low</td>
+                        </tr>
+                        <tr>
+                            <td>10 years</td>
+                            <td>Tide Predictions, Daily, and Monthly Means </td>
+                        </tr>                  
+                    </table>
+                    <a name="requestResponse"></a>                    
+                    <h4>Sample URL requests and responses</h4>                                        
+                    http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20130101 10:00&end_date=20130101 10:24&station=8454000&product=water_level&datum=mllw&units=metric&time_zone=gmt&application=web_services&format=xml
+                    <br><br>
+                    Sample XML output                   
+                    <pre>
+  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+    &lt;data&gt;
+    &lt;metadata id="8454000" name="Providence" lat="41.8071" lon="-71.4012" /&gt; 
+    &lt;observations&gt;
+        &lt;wl t="2013-01-01 10:00" v="0.072" s="0.003" f="0,0,0,0" q="v" /&gt; 
+        &lt;wl t="2013-01-01 10:06" v="0.095" s="0.003" f="0,0,0,0" q="v" /&gt; 
+        &lt;wl t="2013-01-01 10:12" v="0.115" s="0.003" f="0,0,0,0" q="v" /&gt; 
+        &lt;wl t="2013-01-01 10:18" v="0.138" s="0.004" f="0,0,0,0" q="v" /&gt; 
+        &lt;wl t="2013-01-01 10:24" v="0.167" s="0.004" f="0,0,0,0" q="v" /&gt; 
+    &lt;/observations&gt;
+    &lt;/data&gt;
+                    </pre>
+
+                    <br>
+                   http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20130808 15:00&end_date=20130808 15:06&station=8454000&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json
+                   
+                    <br><br>  
+
+                    Sample JSON output
+                    <pre>
+{
+    {
+    "metadata": {
+        "id": "8454000",
+        "name": "Providence",
+        "lat": "41.8071",
+        "lon": "-71.4012"
+    },
+    "data": [
+        {
+            "t": "2013-08-08 15:00",
+            "v": "72.50",
+            "f": "0,0,0"
+        },
+        {
+            "t": "2013-08-08 15:06",
+            "v": "72.50",
+            "f": "0,0,0"
+        }
+    ]
+}}
+                    </pre>
+
+                    <a name="error"></a>
+                    <h4>Error Message</h4>
+                    Depending on the nature of the exception the user will get a customized error message back in the same format of the request.
+                    <br><br>
+
+                    <pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;error&gt;
+Wrong Date: The end date should be greater than the begin date 
+&lt;/error&gt;
+                    </pre>
+
+                    <pre>
+{
+    "error": 
+    {
+    "message":
+        "Great Lakes stations don't have Predictions data."
+    }
+} 
+                    </pre>      
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
