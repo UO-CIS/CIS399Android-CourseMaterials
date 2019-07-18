@@ -1,21 +1,24 @@
 package com.murach.locationviewer;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.location.Location;
-import android.app.Activity;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.widget.TextView;
-import android.content.IntentSender;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -77,16 +80,31 @@ public class LocationViewerActivity extends Activity implements
     //****************************************************************
     @Override
     public void onConnected(Bundle bundle) {
-        Location location =
-                LocationServices.FusedLocationApi
-                        .getLastLocation(googleApiClient);
-        if (location != null) {
-            coordinatesTextView.setText(
-                    location.getLatitude() + "|" + location.getLongitude());
-        }
+        // get current location
+        Location location = null;
+        FusedLocationProviderClient locationClient = LocationServices.getFusedLocationProviderClient(this);
+        final int MY_PERMISSION_ACCESS_COURSE_LOCATION = 42;  // This is an arbitrary value
+        // This check is required by Google Play Services APIs beginning with version 9.0.0 (I think)
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // With API 23 and later, users must give permission after the activity runs
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSION_ACCESS_COURSE_LOCATION);
+        } else {
+            // This is where we request the locaiton
+            location =
+                    LocationServices.FusedLocationApi
+                            .getLastLocation(googleApiClient);
+            if (location != null) {
+                coordinatesTextView.setText(
+                        location.getLatitude() + "|" + location.getLongitude());
+            }
 
-        LocationServices.FusedLocationApi.requestLocationUpdates(
-                googleApiClient, locationRequest, this);
+            LocationServices.FusedLocationApi.requestLocationUpdates(
+                    googleApiClient, locationRequest, this);
+        }
     }
 
     @Override
