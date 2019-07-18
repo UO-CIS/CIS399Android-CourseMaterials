@@ -1,38 +1,42 @@
 package com.murach.runtracker;
 
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class RunMapActivity extends FragmentActivity
-        implements OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
+        implements OnClickListener, ConnectionCallbacks,
+        OnConnectionFailedListener, OnMapReadyCallback {
 
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private static final int INTERVAL_REFRESH = 10 * 1000;   // 10 seconds
@@ -66,7 +70,7 @@ public class RunMapActivity extends FragmentActivity
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this).build();
-
+        /*
         // if GPS is not enabled, start GPS settings activity
         LocationManager locationManager =
                 (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -77,6 +81,7 @@ public class RunMapActivity extends FragmentActivity
                     new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(intent);
         }
+        */
     }
 
     @Override
@@ -88,16 +93,20 @@ public class RunMapActivity extends FragmentActivity
             FragmentManager manager = getSupportFragmentManager();
             SupportMapFragment fragment =
                     (SupportMapFragment) manager.findFragmentById(R.id.map);
-            map = fragment.getMap();
+            fragment.getMapAsync(this);
+
+
+            // if GoogleMap object is available, configure it
+            if (map != null) {
+                map.getUiSettings().setZoomControlsEnabled(true);
+            }
+
+            googleApiClient.connect();
         }
 
-        // if GoogleMap object is available, configure it
-        if (map != null) {
-            map.getUiSettings().setZoomControlsEnabled(true);
-        }
-
-        googleApiClient.connect();
     }
+
+
 
     @Override
     protected void onStop() {
@@ -127,10 +136,25 @@ public class RunMapActivity extends FragmentActivity
     }
 
     private void setCurrentLocationMarker(){
+        Location location = null;
+
         if (map != null) {
             // get current location
-            Location location = LocationServices.FusedLocationApi
-                    .getLastLocation(googleApiClient);
+            FusedLocationProviderClient locationClient = LocationServices.getFusedLocationProviderClient(this);
+            final int MY_PERMISSION_ACCESS_COURSE_LOCATION = 42;  // This is an arbitrary value
+            // This check is required by Google Play Services APIs beginning with version 9.0.0 (I think)
+            if (ContextCompat.checkSelfPermission(this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+                // With API 23 and later, users must give permission after the activity runs
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSION_ACCESS_COURSE_LOCATION);
+            } else {
+                // This is where we request the locaiton
+                location = LocationServices.FusedLocationApi
+                        .getLastLocation(googleApiClient);
+            }
 
             if (location != null) {
                 // zoom in on current location
@@ -187,6 +211,14 @@ public class RunMapActivity extends FragmentActivity
     }
 
     //**************************************************************
+    // Implement OnMapReadyCallback
+    //****************************************************************
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
+    }
+
+    //**************************************************************
     // Implement ConnectionCallbacks interface
     //****************************************************************
     @Override
@@ -232,4 +264,5 @@ public class RunMapActivity extends FragmentActivity
     public void onClick(View v) {
         startActivity(stopwatchIntent);
     }
+
 }
