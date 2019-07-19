@@ -21,16 +21,7 @@
     <last-search-timestamp>1563475511740</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d001c23b-744c-49bf-bd2e-b7a35cbc599d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/app/src/main/java/com/murach/locationviewer/LocationViewerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/app/src/main/java/com/murach/locationviewer/LocationViewerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch18_LocationViewer/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ch18_LocationViewer/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d001c23b-744c-49bf-bd2e-b7a35cbc599d" name="Default" comment="" />
     <ignored path="ch18_RunTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,7 +125,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="736" />
@@ -410,7 +401,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="736" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22557004" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -436,7 +428,7 @@
       <window_info anchor="bottom" id="Application Servers" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Android Profiler" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Build" order="15" visible="true" weight="0.28739002" />
+      <window_info anchor="bottom" id="Build" order="15" visible="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Logcat" order="16" weight="0.32991204" />
       <window_info anchor="bottom" id="Flutter Performance" order="17" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
