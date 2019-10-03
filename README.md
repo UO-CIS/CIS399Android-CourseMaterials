@@ -6,7 +6,7 @@ In this course, you will be introduced to mobile application programming concept
 
 Example apps for the course are in my [CIS399AndroidDemos](https://github.com/UO-CIS/CIS399AndroidDemos) repository. 
 
-Example apps from the textbook, [*Murach's Android Programming, 2nd Edition*](https://www.murach.com/shop/murach-s-android-programming-2nd-edition-detail) are included in this repository. I have updated some of these apps to work with the development tools and libraries current as of the summer of 2019.
+Example apps from the textbook, [*Murach's Android Programming, 2nd Edition*](https://www.murach.com/shop/murach-s-android-programming-2nd-edition-detail) are included in this repository. I have updated some of these apps to work with the development tools and libraries current as of the summer of 2019. In order to use the Ch. 18 map apps, you will need to [get a Google API key](https://console.developers.google.com/apis/credentials/key/f657ce35-cb25-40ed-b9b4-7ce9614520eb?project=hale-tracer-170916)
 
 A newer version of this course is in [AndroidAppDev1-Java-CourseMaterials] (https://github.com/ProfBird/AndroidAppDev1-Java-CourseMaterials)  
 
